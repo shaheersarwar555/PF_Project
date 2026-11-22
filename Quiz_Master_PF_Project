@@ -5,6 +5,47 @@
 #define reset  "\033[0m"
 
 
+void showResult(int score[2][10], int *totals, float *percentage)
+{
+    *totals = 0;
+
+    for(int i = 0; i < 10; i++)
+    {
+        *totals = *totals + score[1][i];
+    }
+
+    *percentage = (*totals / 10.0) * 100;
+
+    printf("\n\n========== QUIZ RESULT ==========\n");
+
+    printf("Total Questions: 10\n");
+    printf("Correct Answers: %d\n", *totals);
+    printf("Wrong Answers: %d\n", 10 - *totals);
+    printf("Your Score: %d/10\n", *totals);
+    printf("Percentage: %.2f%%\n", *percentage);
+
+    if(*percentage >= 80)
+    {
+        printf("Performance: Excellent!\n");
+    }
+    else if(*percentage >= 60)
+    {
+        printf("Performance: Good!\n");
+    }
+    else if(*percentage >= 40)
+    {
+        printf("Performance: Average!\n");
+    }
+    else
+    {
+        printf("Performance: Needs Improvement!\n");
+    }
+
+    printf("=================================\n");
+}
+
+
+
 int main()
 
 {
@@ -215,7 +256,7 @@ int main()
 				
 			printf("\nChoose the correct article: He is ____ Honest man. \n1.A \n2.The \n3.An \n4.No article\n");
 	  	   scanf("%d", &e);
-	  	   if(e == 2){
+	  	   if(e == 3){
 	  	      	printf("\nCorrect!\n");
 				score[1][5] = 1;
 				}
@@ -380,7 +421,7 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");
 				
-			printf("\nComplete: A, C, E, G, ? \n1.F \n2.B \n3.D \n4.\nI");
+			printf("\nComplete: A, C, E, G, ? \n1.F \n2.B \n3.D \n4.I\n");
 	  	   scanf("%d", &e);
 	  	   if(e == 4){
 	  	      	printf("\nCorrect!\n");
@@ -407,9 +448,9 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");
 			
-			printf("\nWhich number is odd? \n1.91 \n2.7 \n3.23 \n4.39\n");
+			printf("\nWhich number is even? \n1.91 \n2.7 \n3.23 \n4.40\n");
 	  	   scanf("%d", &e);
-	  	   if(e == 3){
+	  	   if(e == 4){
 	  	      	printf("\nCorrect!\n");
 				score[1][6] = 1;
 				}
@@ -554,7 +595,7 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");
 				
-			printf("\nWalking into the room, the lights turned off. \n1. Dangling Modifier \n2. Phrase Modifier \n3.Misplaced Modifier \n4.Complex Modifier\n");
+			printf("\n2, 6, 12, 20, 30, 42, ? \n1.56 \n2.74 \n3.53 \n4.52\n");
 	  	   scanf("%d", &e);
 	  	   if(e == 1){
 	  	      	printf("\nCorrect!\n");
@@ -563,7 +604,7 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");
 				
-			printf("\nWhich kind of Phrase it has? \nShe spoke very softly during the meeting. \n1.Verb phrase. \n2.Noun phrase. \n3.Adverb phrase. \n4.Adjective phrase.\n");
+			printf("\nA father is four times as old as his son. In 20 years, he will be twice as old as his son. How old is the father currently? \nShe spoke very softly during the meeting. \n1.20 \n2.30 \n3.40 \n4.50\n");
 	  	   scanf("%d", &e);
 	  	   if(e == 3){
 	  	      	printf("\nCorrect!\n");
@@ -572,16 +613,16 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");
 				
-			printf("\nChoose the correctly punctuated sentence. \n1.However I disagree with you \n2.However, I disagree with you \n3.However I, disagree with you \n4.However; I, disagree with you\n");
+			printf("\nThree friends pay $30 for a hotel room, receive a $3 refund, and the bellboy keeps $2 from the original $5 refund; where is the missing dollar? \n1.1$ \n2.2$ \n3.3$ \n4.None of the above\n");
 	  	   scanf("%d", &e);
-	  	   if(e == 2){
+	  	   if(e == 4){
 	  	      	printf("\nCorrect!\n");
 				score[1][4] = 1;
 				}
 				else
 				printf("\n\aIncorrect!\n");
 				
-			printf("\nChoose the correct agreement. \n1.Neither the teacher nor the students was ready \n2.Neither teacher or students were ready \n3.Neither the teacher nor the students were ready \n4.Neither the teacher nor students is ready yesterday\n");
+			printf("\nA clock shows 3:15; what is the exact angle between its hour and minute hands? \n1. 4.5 degrees \n2. 9.5 degrees \n3. 7.5 degrees \n4. 5 degrees\n");
 	  	   scanf("%d", &e);
 	  	   if(e == 3){
 	  	      	printf("\nCorrect!\n");
@@ -608,7 +649,7 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");
 				
-			printf("\nWhat does 'loquacious' mean? \n1.Talkative \n2.Silent \n3.Angry \n4.Forgetful\n");
+			printf("\nIf five machines take five minutes to make five products, how long will 100 machines take to make 100 products? \n1.5 minutes \n2.10 minutes \n3.20 minutes \n4.50 minutes\n");
 	  	   scanf("%d", &e);
 	  	   if(e == 1){
 	  	      	printf("\nCorrect!\n");
@@ -617,7 +658,7 @@ int main()
 				else
 				printf("\n\aIncorrect!\n");	
 				
-			printf("\nChoose the correct sentence. \n1.Despite of the rain, we went out \n2.Despite the rain, we went out \n3.Although the rain, we went out \n4.Despite it was raining, we went out\n");
+			printf("\nA man looks at a photograph and says, "Brothers and sisters I have none, but that man's father is my father's son"; who is in the photograph?\n1.The man himself \n2.His son \n3.His brother \n4.His father\n");
 	  	   scanf("%d", &e);
 	  	   if(e == 2){
 	  	      	printf("\nCorrect!\n");
@@ -830,7 +871,7 @@ int main()
 		else if(b == 3){
 			printf("\nQ1. Solve: 3x + 7 = 25. What is x?\n1. 4\n2. 5\n3. 6\n4. 7\n");
 			scanf("%d", &e);
-			if(e == 2){
+			if(e == 3){
 				printf("\nCorrect!\n");
 				score[1][0] = 1;
 			}
@@ -893,7 +934,7 @@ int main()
 				}
 			printf("\nQ8. What is the value of (5 + 3) squared - 16?\n1. 36\n2. 40\n3. 48\n4. 64\n");
 			scanf("%d", &e);
-			if(e == 1){
+			if(e == 3){
 				printf("\nCorrect!\n");
 				score[1][7] = 1;
 			}
@@ -1041,7 +1082,7 @@ int main()
 				}
 			printf("\nQ3. Who was the first Governor-General of Pakistan?\n1. Liaquat Ali Khan\n2. Muhammad Ali Jinnah\n3. Ayub Khan\n4. Iskander Mirza\n");
 			scanf("%d", &e);
-			if(e == 1){
+			if(e == 2){
 				printf("\nCorrect!\n");
 				score[1][2] = 1;
 			}
@@ -1555,48 +1596,25 @@ else if(b == 3)
 		printf("\nInvalid subject choice!\n");
 	}
 	
-	//Result Calculation
-	for(int i = 0; i < 10; i++)
-	{
-    	totals = totals + score[1][i];
-	}
+	//Calling Result Function
 
-	percentage = (totals / 10.0) * 100;
-
-	printf("\n\n========== QUIZ RESULT ==========\n");
-	printf("Total Questions: 10\n");
-	printf("Correct Answers: %d\n", totals);
-	printf("Wrong Answers: %d\n", 10 - totals);
-	printf("Your Score: %d/10\n", totals);
-	printf("Percentage: %.2f%%\n", percentage);
-
-	if(percentage >= 80)
+	if(a >= 1 && a <= 5 && b >= 1 && b <= 3)
 	{
-	    printf("Performance: Excellent!\n");
+	showResult(score, &totals, &percentage);
 	}
-	else if(percentage >= 60)
-	{
-	    printf("Performance: Good!\n");
-	}
-	else if(percentage >= 40)
-	{
-    	printf("Performance: Average!\n");
-	}
-	else
-	{
-	    printf("Performance: Needs Improvement!\n");
-	}
-
 	printf("=================================\n");
 
 	printf("\nDo you want to retry? (Y/N)\n");
 	scanf(" %c", &ans);
-	} while(ans == 'Y' || ans == 'y');
-	
-	printf("\nThank you for participating in the quiz!\n");
-	printf("Goodbye!   \n...\n...\n .. *whispers (for now)\n");
-	
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	// Result file-handling part of the quiz Master
+	if(a >= 1 && a <= 5 && b >= 1 && b <= 3)
+	{
+
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	FILE *fp;
 
        fp = fopen("QuizResults.txt", "a");
@@ -1626,7 +1644,14 @@ else if(b == 3)
     fclose(fp);
 
     printf("\nResult successfully saved in file!\n");
-     }
+    }
+	}
+	} while(ans == 'Y' || ans == 'y');
 	
+	printf("\nThank you for participating in the quiz!\n");
+	printf("Goodbye!   \n...\n...\n .. *whispers (for now)\n");
+	
+	
+
 	return 0;
-     }
+}
